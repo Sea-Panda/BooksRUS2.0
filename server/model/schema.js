@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const { schema } = require("webpack-dev-server");
+
 // const MONGO_URI = `mongodb+srv://hmu1540:Gt7130mhm%40%40@cluster0.8mkig.mongodb.net/?retryWrites=true&w=majority`;
-const MONGO_URI = `mongodb+srv://kawaiiyummy14:Y7tM6quZ2jPiC0on@cluster0.bul5twv.mongodb.net/?retryWrites=true&w=majority`
+// const MONGO_URI = `mongodb+srv://kawaiiyummy14:Y7tM6quZ2jPiC0on@cluster0.bul5twv.mongodb.net/?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://xkevinle:Lol123123@cluster0.uvftduh.mongodb.net/?retryWrites=true&w=majority`;
+
 mongoose.connect(MONGO_URI, {
   // options for the connect method to parse the URI
   useNewUrlParser: true,

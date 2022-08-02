@@ -1,4 +1,4 @@
-const { User, Comment, Book } = require('../model/schema');
+const { User } = require('../model/schema');
 
 const userController = {};
 
@@ -37,5 +37,28 @@ userController.login = async (req, res, next) => {
     .catch((err) => next({ message: { err: 'user login err' } }));
 };
 
+userController.deleteUser = async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+
+    await User.deleteOne({ _id });
+    return next();
+  }
+  catch (err) {
+    return next({ message: { err: 'user delete err' } })
+  }
+}
+
+userController.updateUser = async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+    const { username, password, email } = req.body;
+
+    await User.findOneAndUpdate({ _id }, { username, password, email });
+    return next();
+  } catch (err) {
+    return next({ message: { err: 'user update err' } })
+  }
+}
 
 module.exports = userController;
