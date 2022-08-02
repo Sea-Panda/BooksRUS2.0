@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.authHeader {
+    padding: 40px 40px 20px;
+    margin: auto;
+    width: 50%;
+    text-align: center
+}
+
+body {
+    background-color: #F9f6ed;
+    font-size: 14px;
+}
+
+.container-fluid {
+    background-color: #F9f6ed;
+}
+
+.navbar-nav {
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: #C1E1C1;
+}
+
+.user-profile {
+    border-radius: 20px;
+    padding: 40px 40px 20px;
+    margin: auto;
+    width: 50%;
+}
+
+.myProfileHeader {
+    text-align: center;
+
+}
+
+.userNameHeader {}
+
+.myEmailHeader {}
+
+.searchBody {
+
+    padding-bottom: 30px;
+}
+
+.search-button {
+    padding: .1em .5em;
+    font-size: 1em;
+    margin: 0.2em;
+}
+
+.search-button:hover {
+    background-color: #C1E1C1;
+}
+
+.wrapper .header {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    margin: 50px auto;
+}
+
+.wrapper .header .top,
+.wrapper .header .signup {
+    background: #fff;
+    border: 1px solid #ccdcff;
+    border-radius: 1px;
+    padding: 40px 40px 20px;
+}
+
+.wrapper .header .logo img {
+    display: block;
+    margin: 0 auto 35px;
+}
+
+.wrapper .header .form .input_field {
+    margin-bottom: 5px;
+}
+
+
+
+.wrapper .header .form .input_field .input {
+    width: 100%;
+    background: #efefef;
+    border: 1px solid #efefef;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #262626;
+    padding: 10px;
+
+}
+
+.wrapper .header .form .input_field .input:focus {
+    border: 1px solid #b2b2b2;
+}
+
+.wrapper .header .form .btn {
+    background: #5085f9;
+    border-radius: 1px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.wrapper .header .form .btn a {
+    color: #fff;
+    display: block;
+}
+
+.wrapper .header .or {
+    display: flex;
+    height: 15px;
+    margin: 15px 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .header .or .line {
+    width: 105px;
+    height: 2px;
+    background: #efefef;
+}
+
+.wrapper .header .or p {
+    color: #999;
+    font-size: 12px;
+}
+
+.wrapper .header .diff .fb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .header .diff .fb img {
+    width: 16px;
+    height: 16px;
+}
+
+.wrapper .header .diff .fb p {
+    color: #385185;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.wrapper .header .diff .forgot {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.wrapper .header .diff .forgot a {
+    color: #003569;
+}
+
+.wrapper .header .signup {
+    margin: 10px 0 20px;
+    padding: 25px 40px;
+    text-align: center;
+    color: #262626;
+}
+
+.wrapper .header .signup a {
+    color: #3897f0;
+}
+
+.wrapper .header .apps {
+    text-align: center;
+    color: #262626;
+}
+
+.wrapper .header .apps p {
+    margin-bottom: 20px;
+}
+
+.wrapper .header .apps a img {
+    width: 135px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.wrapper .footer {
+    max-width: 935px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .footer ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.wrapper .footer ul li a {
+    font-size: 12px;
+    color: #003569;
+}
+
+.wrapper .footer .copyright {
+    color: #999;
+}
+
+.top_form {
+    margin-bottom: 30px;
+}
+
+.register_button {
+    padding-right: 5;
+}
+
+img {
+    width: 250px;
+    height: 350px;
+
+}
+
+.favorite_books {
+    padding-top: 15px;
+}
+
+.searchbtn_profile {
+    background: #fff;
+    border-radius: 1px;
+    text-align: center;
+    padding: 5px;
+}
+
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
