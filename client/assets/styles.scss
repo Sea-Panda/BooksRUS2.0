@@ -23,16 +23,68 @@ body {
     font-size: 14px;
 }
 
-.container-fluid {
+#container-fluid {
     background-color: #F9f6ed;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
 }
 
-.navbar-nav {
+.nav-item1 {
+    text-align: left;
+    padding-left: 10px;
     cursor: pointer;
+    height: max-content;
 }
 
-.nav-item:hover {
+.nav-item2 {
+    text-align: center;
+    cursor: pointer;
+    height: max-content;
+}
+
+.nav-item3 {
+    text-align: right;
+    padding-right: 10px;
+    cursor: pointer;
+    height: max-content;
+}
+
+.navbar-brand:hover {
     background-color: #C1E1C1;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.userButtons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+    margin: 20px;
+
+    justify-content: space-between;
+    
+    // background-color: #262626;
+}
+
+.updateUserBtn {
+    background-color: #79a1f7;
+    height: 5vh;
+    border: 1px solid #79a1f7;
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px;
+}
+
+.deleteUserBtn {
+    background-color: rgb(236, 128, 128);
+    color: white;
+    height: 5vh;
+    border: 1px solid rgb(236, 128, 128);
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px black;
 }
 
 .user-profile {
@@ -232,6 +284,19 @@ img {
 
 .favorite_books {
     padding-top: 15px;
+}
+
+.removeBook {
+    padding: 0px 5px;
+    border: 1px solid rgb(236, 128, 128);
+    border-radius: 5px;
+    background-color: rgb(236, 128, 128);
+    color: white;
+    margin: 10px;
+}
+
+.removeBook:hover {
+    
 }
 
 .searchbtn_profile {

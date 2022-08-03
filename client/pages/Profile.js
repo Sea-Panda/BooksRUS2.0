@@ -19,35 +19,38 @@ export default function Profile() {
   }
   return (
     <div>
-    <Nav />
-    <Routes>
-      <Route path="/search" element={<Search />} />
-    </Routes>
-    <div className='user-profile'>
+      <Nav />
+      <Routes>
+        <Route path="/search" element={<Search />} />
+      </Routes>
+      <div className='user-profile'>
 
-      <button className='searchbtn_profile' onClick={() => navigate("/search", { replace: true })}> Search</button>
+        <div className='userButtons'>
+          <button className='updateUserBtn' onClick={() => navigate("/search", { replace: true })}> Update User</button>
+          <div></div>
+          <button className='deleteUserBtn' onClick={() => navigate("/search", { replace: true })}> Delete User</button>
+        </div>
 
+        <div>
+          <div className="card text-center">
+            <div className="card-body">
+              <h3 className="card-title">User Profile</h3>
+              <p className="card-text">User: {user.username}</p>
+              <p className="card-text">Email: {user.email}</p>
+            </div>
+          </div>
+        </div>
 
-      <div>
-        <div className="card text-center">
-          <div className="card-body">
-            <h3 className="card-title">User Profile</h3>
-            <p className="card-text">User: {user.username}</p>
-            <p className="card-text">Email: {user.email}</p>
+        <div className='favorite_books'>
+          <div className="card text-center">
+            <div className="card-body">
+              <h3 className="card-title">My Favorite Books</h3>
+              <p className="card-text">View all your favorite books in one place!</p>
+              {likedBooksComponents}
+            </div>
           </div>
         </div>
       </div>
-
-      <div className='favorite_books'>
-      <div className="card text-center">
-        <div className="card-body">
-          <h3 className="card-title">My Favorite Books</h3>
-          <p className="card-text">View all your favorite books in one place!</p>
-          {likedBooksComponents}
-        </div>
-        </div>
-      </div>
-      </div>
-      </div>
+    </div>
   );
 }

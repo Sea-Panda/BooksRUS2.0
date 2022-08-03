@@ -18,13 +18,19 @@ export default function search() {
         console.log('books query: ', queryArr);
         const newBooks = [];
         // console.log(queryArr)
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 5; i++) {
           newBooks.push(<Book book={queryArr[i]} key={i} />);
         }
         setBooks(newBooks);
       })
       .catch((err => console.log('query api err')));
   };
+
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter') {
+      queryBooks(document.getElementById('search').value);
+    }
+  }
 
   return (
 
@@ -34,7 +40,7 @@ export default function search() {
 
       <h1 className='searchbar'>Search for a book!</h1>
       <form className='searchbar'>
-        <input type='text' id="search" placeholder='My favorite title'></input>
+        <input onKeyDown={handleKeyDown} type='text' id="search" placeholder='My favorite title'></input>
         <label htmlFor="search"></label>
         <button className='search-button' type='button' onClick={() => { queryBooks(document.getElementById('search').value) }}>Search</button>
       </form>
