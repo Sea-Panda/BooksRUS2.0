@@ -8,15 +8,7 @@ import Nav from './components/Nav.js'
 class Auth extends Component {
   render() {
     return (
-      <div>
-        {/* 
-        <h1 className='authHeader'> BooksRUs </h1>
-        <nav className='authHeader'>
-          <Link to='login'>Login</Link>
-          <br></br>
-          <Link to='register'>Register</Link>
-        </nav> */}
-        <div >
+
           <div class="jumbotron" >
 
             <h1 class="display-4">BooksRUs</h1>
@@ -24,12 +16,13 @@ class Auth extends Component {
             <br></br>
             <p>Search and discover new books catered to your personal taste. Register now to start.</p>
             <p class="lead">
+            <Link class="btn btn-primary btn-lg" to='login'>Login</Link>
+            <br/><br/>
               <a class="btn btn-primary btn-lg" href="/#/auth/register" role="button">Register</a>
             </p>
 
-          </div>
-          {/* <img src='cat.jpg' alt='cat' class="img-thumbnail"></img> */}
-        </div>
+
+
 
         <Outlet />
       </div>
