@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 
 // router: /login /logup /logout /reset
 app.use('/auth', authRouter);
-app.use('/user', usersRouter);
 
 // router: /search, /myshelf,
 app.use('/books', bookRouter);
