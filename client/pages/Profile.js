@@ -4,6 +4,7 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import ProfileBooks from '../components/booksForProfile';
 import Nav from '../components/Nav';
 import Search from './Search';
+import EditUser from './EditUser';
 
 
 export default function Profile() {
@@ -22,11 +23,12 @@ export default function Profile() {
       <Nav />
       <Routes>
         <Route path="/search" element={<Search />} />
+        <Route path='/user/editUser' element={<EditUser />} />
       </Routes>
       <div className='user-profile'>
 
         <div className='userButtons'>
-          <button className='updateUserBtn' onClick={() => navigate("/search", { replace: true })}> Update User</button>
+          <button className='updateUserBtn' onClick={() => navigate("/user/editUser", { replace: true })}> Update User</button>
           <div></div>
           <button className='deleteUserBtn' onClick={() => navigate("/search", { replace: true })}> Delete User</button>
         </div>

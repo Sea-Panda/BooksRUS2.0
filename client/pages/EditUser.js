@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import { useStoreState, useStoreActions } from "easy-peasy";
 import Nav from "../components/Nav";
 import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
@@ -11,20 +11,52 @@ import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-do
 
 export default function EditUser() {
   const user = useStoreState((state) => state.user);
+  const updateUser = useStoreActions((actions) => actions.updateUser);
+  let navigate = useNavigate();
+  // const handleSubmit = () => {
+  //   console.log('test')
+  // }
+  async function handleSubmit(event) {
+    event.preventDefault();
+    // request to /auth/login
+    const data = await fetch('/user/editUser', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ _id: user._id, username, email, password }),
 
-  
+    })
+      .then((resp) => resp.json())
+      .catch((err) => console.log('error in /auth/edituser'));
+
+    if (data === null) {
+      //tell user that login credentials were wrong
+      console.log('invalid credentials');
+    } else {
+      console.log('new data: ', data)
+      updateUser(data);
+      navigate('/profile', { replace: true }); //navigates to profile if login was successful
+    }
+  }
+
+
+
+  const [username, setUsername] = useState()
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+
 
   return (
     <div>
       <Nav />
       <div>
-        <div class="card text-center">
-          <div class="card-body">
-            <h3 class="card-title-old">Current Profile Information</h3>
-                <p class="card-text">Username: {user.username}</p>
-                <p class="card-text">Email: {user.email}</p>
-                <p class="card-text"> Password: {user.password}</p>
-            <h3 class="card-title-new">Enter New User Profile Information</h3>
+        <div className="card text-center">
+          <div className="card-body">
+            <h3 className="card-title-old">Current Profile Information</h3>
+                <p className="card-text">Username: {user.username}</p>
+                <p className="card-text">Email: {user.email}</p>
+                <p className="card-text"> Password: {user.password}</p>
+            <h3 className="card-title-new">Enter New User Profile Information</h3>
             <div className='form'>
             <form className='update-login-form' onSubmit={handleSubmit}>
 

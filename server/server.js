@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const authRouter = require('./routers/authRouter.js');
 const bookRouter = require('./routers/bookRouter.js');
+const usersRouter = require('./routers/usersRouter.js');
 const app = express();
 const PORT = 3000;
 app.use(express.json());
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 // router: /login /logup /logout /reset
 app.use('/auth', authRouter);
+app.use('/user', usersRouter);
 
 // router: /search, /myshelf,
 app.use('/books', bookRouter);

@@ -19,8 +19,9 @@ export default function search() {
         console.log('books query: ', queryArr);
         const newBooks = [];
         // console.log(queryArr)
-        for (let i = 0; i < 5; i++) {
-          newBooks.push(<Book book={queryArr[i]} key={i} />);
+        for (let i = 0; i < queryArr.length; i++) {
+          if(queryArr[i].volumeInfo.industryIdentifiers && queryArr[i].volumeInfo.imageLinks)
+            newBooks.push(<Book book={queryArr[i]} key={i} />);
         }
         setBooks(newBooks);
       })
@@ -29,6 +30,7 @@ export default function search() {
 
   const handleKeyDown = (e) => {
     if(e.key === 'Enter') {
+      e.preventDefault();
       queryBooks(e.target.value);
     }
   }
@@ -43,7 +45,7 @@ export default function search() {
 
       <h1 className='searchbar'>Search for a book!</h1>
       <form className='searchbar'>
-        <input onKeyDown={(e) => handleKeyDown(e)} type='text' id="search" placeholder='My favorite title'></input>
+        <input onKeyDown={handleKeyDown} type='text' id="search" placeholder='My favorite title'></input>
         <button className='search-button' type='button' onClick={() => { queryBooks(document.getElementById('search').value) }}>Search</button>
       </form>
 

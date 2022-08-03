@@ -26,7 +26,7 @@ root.render(
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
-        <Route path='/editUser' element={<EditUser />} />
+        <Route path='/user/editUser' element={<EditUser />} />
 
 
         <Route
