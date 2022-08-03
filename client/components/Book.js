@@ -34,10 +34,7 @@ export default function Book(props) {
       .then((data) => data.json())
       .then((data) => updateUser(data))
       .catch(err => console.log('error in /books/like'))
-
   }
-
-
   return (
     <div>
       <h4>Book Name: {bookData.name} </h4>
