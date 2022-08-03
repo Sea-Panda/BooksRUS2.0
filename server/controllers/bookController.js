@@ -19,7 +19,6 @@ bookController.like = async (req, res, next) => {
         }
       }
     })
-    .catch((err) => next({ message: { err: 'err in booklike controller' } }));
 
     const likedBook = await Book.create({ name: bookData.name, description: bookData.description, isbn: bookData.isbn, imageUrl: bookData.imageUrl, moreInfo: bookData.moreInfo });
     const data = await User.updateOne({ email: email }, { $push: { likedBooks: likedBook } }).exec()
@@ -32,7 +31,6 @@ bookController.like = async (req, res, next) => {
 
     return next();
 
-    
 }
 
 bookController.unLike = async (req, res, next) => {
