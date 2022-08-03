@@ -22,12 +22,68 @@ export default function EditUser() {
                 <p class="card-text">Email: {user.email}</p>
                 <p class="card-text"> Password: {user.password}</p>
             <h3 class="card-title-new">Enter New User Profile Information</h3>
-            <p class="card-text">New Username:</p>
-            <p class="card-text">New Email:</p>
-            <p class="card-text">New Password:</p>
-          </div>
-        </div>
+            <div className='form'>
+            <form className='login-form' onSubmit={handleSubmit}>
+
+              <div className='input_field' >
+                <label htmlFor='email'>New Username:</label>
+
+              {/* <div className='input_field'>
+                <label htmlFor='username'>Username</label> */}
+
+
+                <div className='input_box'></div>
+                <input
+                  id='username'
+                  placeholder='John Smith'
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                ></input>
+              </div>
+
+              <div className='input_field'>
+                <label htmlFor='email'>New Email:</label>
+
+                <div className='input_box'></div>
+                <input
+                  id=' email'
+                  placeholder='email@example.com'
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                ></input>
+              </div>
+
+              <br></br>
+              <div className='input_field'>
+                <label for='password'>New Password:</label>
+
+                <div className='input_box'>
+                  <input
+                    className='input_box'
+                    type='password'
+                    id='password'
+                    placeholder='Password'
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  ></input>
+                </div>
+              </div>
+
+              <br></br>
+
+              <div className='btn'>
+                <button className='btn' type='submit'>
+                  Submit User Changes
+                </button>
+              </div>
+            </form>
+        </div>    
       </div>
+      </div>      
+    </div>
     </div>
   );
 }
