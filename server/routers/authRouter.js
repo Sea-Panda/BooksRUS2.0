@@ -10,4 +10,8 @@ router.post('/register', userController.register, (req, res) => res.status(200).
 
 router.post('/login', userController.login, (req, res) => res.status(200).json(res.locals.user)); //sending back the user info if login was successfull
 
+router.delete('/:_id', userController.deleteUser, (req, res) => res.status(200).json('user deleted'));
+
+router.patch('/:_id', userController.updateUser, (req, res) => res.status(200).json(res.locals.editUser));
+
 module.exports = router;

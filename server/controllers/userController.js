@@ -39,9 +39,15 @@ userController.login = async (req, res, next) => {
 
 userController.deleteUser = async (req, res, next) => {
   try {
+    console.log('I am in the delete user controller');
     const { _id } = req.params;
 
+<<<<<<< HEAD
     res.locals.deletedUsers = await User.deleteOne({ _id });
+=======
+    await User.deleteOne({ _id });
+    console.log('I am after deleting the user');
+>>>>>>> 7d6c918d985618a4aba4d45c4506704baa82d284
     return next();
   }
   catch (err) {
@@ -53,8 +59,13 @@ userController.updateUser = async (req, res, next) => {
   try {
     const { _id, username, password, email } = req.body;
 
+<<<<<<< HEAD
     const update = await User.findOneAndUpdate({ _id }, { username, password, email }, {new: true});
     res.locals.updatedUsers = update;
+=======
+    const edited = await User.findOneAndUpdate({ _id }, { username, password, email }, { new: true });
+    res.locals.editUser = edited;
+>>>>>>> 7d6c918d985618a4aba4d45c4506704baa82d284
     return next();
   } catch (err) {
     return next({ message: { err: 'user update err' } })
