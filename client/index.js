@@ -9,7 +9,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
-import EditUser from "./pages/EditUser"
+import EditUser from "./pages/EditUser";
+import DeleteUser from './pages/deleteUser';
 import "./assets/styles.scss";
 
 const rootElement = document.getElementById("root");
@@ -27,8 +28,7 @@ root.render(
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
         <Route path='/editUser' element={<EditUser />} />
-
-
+        <Route path='/deleteUser' element={<DeleteUser />}/>
         <Route
           path="*"
           element={
