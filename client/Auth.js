@@ -9,16 +9,16 @@ class Auth extends Component {
   render() {
     return (
 
-          <div class="jumbotron" >
+          <div className="jumbotron" >
 
-            <h1 class="display-4">BooksRUs</h1>
-            <p class="lead">Build a library of your own!</p>
+            <h1 className="display-4">BooksRUs</h1>
+            <p className="lead">Build a library of your own!</p>
             <br></br>
             <p>Search and discover new books catered to your personal taste. Register now to start.</p>
-            <p class="lead">
-            <Link class="btn btn-primary btn-lg" to='login'>Login</Link>
+            <p className="lead">
+            <Link className="btn btn-primary btn-lg" to='login'>Login</Link>
             <br/><br/>
-              <a class="btn btn-primary btn-lg" href="/#/auth/register" role="button">Register</a>
+              <a className="btn btn-primary btn-lg" href="/#/auth/register" role="button">Register</a>
             </p>
 
 

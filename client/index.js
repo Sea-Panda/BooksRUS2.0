@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import * as React from "react"
+import { createRoot } from 'react-dom/client';
+import { HashRouter, Routes, Route } from "react-router-dom";
 import store from "./store";
 import { StoreProvider } from "easy-peasy";
 import App from "./App";
@@ -11,25 +11,23 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import EditUser from "./pages/EditUser"
 import "./assets/styles.scss";
-const rootElement = document.getElementById("root");
-import Nav from "./components/Nav";
 
-ReactDOM.render(
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+root.render(
   <StoreProvider store={store}>
     <HashRouter>
-      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<App />} />
-
         <Route path="/auth" element={<Auth />}>
           <Route path="login" element={<Login />} /> // The nested url segments
           map to nested component trees.
           <Route path="register" element={<Register />} />
         </Route>
-
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
         <Route path='/editUser' element={<EditUser />} />
+
 
         <Route
           path="*"
@@ -42,6 +40,5 @@ ReactDOM.render(
         <Route path="/books" />
       </Routes>
     </HashRouter>
-  </StoreProvider>,
-  rootElement // the big container
+  </StoreProvider>
 );
