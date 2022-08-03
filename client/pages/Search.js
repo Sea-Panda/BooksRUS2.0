@@ -18,8 +18,9 @@ export default function search() {
         console.log("books query: ", queryArr);
         const newBooks = [];
         // console.log(queryArr)
-        for (let i = 0; i < 5; i++) {
-          newBooks.push(<Book book={queryArr[i]} key={i} />);
+        for (let i = 0; i < queryArr.length; i++) {
+          if(queryArr[i].volumeInfo.industryIdentifiers && queryArr[i].volumeInfo.imageLinks)
+            newBooks.push(<Book book={queryArr[i]} key={i} />);
         }
         setBooks(newBooks);
       })
