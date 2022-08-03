@@ -1,4 +1,5 @@
-import * as React from "react";
+// import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import { useStoreState, useStoreActions } from "easy-peasy";
 import Nav from "../components/Nav";
 import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
@@ -9,10 +10,53 @@ import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-do
 // import ProfileBooks from '../components/booksForProfile';
 // import Search from './Search';
 
+
 export default function EditUser() {
   const user = useStoreState((state) => state.user);
+  console.log('THIS IS USER FROM EDIT USER', user);
+  const updateUser = useStoreActions((actions) => actions.updateUser);
+  let navigate = useNavigate();
 
-  
+  async function handleEditProfileSubmit (event) {
+    /* It prevents the default action of the event from happening. */
+    event.preventDefault();
+    const userInfo = { username, email, password , _id: user._id}
+    
+    const updatedData = await fetch (`/auth/${user._id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(userInfo),
+    })
+      .then((data) => data.json())
+      .then((res) => {
+        console.log('THIS IS RESPONSE FROM HANDLEEDITPROFILE', res)
+        updateUser(res);
+        navigate ('/profile', { replace: true })
+      })
+    /* This is the code that is supposed to update the user profile. */
+      // updateUser(updatedData)
+      // navigate ('/profile', { replace: true })
+
+      .catch((err) => console.log('Error in handleEditProfileSubmit in EditUser.js'))
+  }
+
+  // async function handleDeleteProfile(){
+  //   console.log('I am inside handle delete', user._id);
+  //   const userToDelete = await fetch(`/auth/${user._id}`,{
+  //     method: 'DELETE',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ _id : user._id }),
+  //   })
+  //   .then((response) => response.json())
+  //   .then((data) => console.log(data))
+  //   .catch(err => console.log('Error in Handle Delete Profile'))
+    
+  //   navigate('/auth', { replace: true });
+  // }
+
+  const [username, setUsername] = React.useState();
+  const [email, setEmail] = React.useState();
+  const [password, setPassword] = React.useState();
 
   return (
     <div>
@@ -26,7 +70,7 @@ export default function EditUser() {
                 <p class="card-text"> Password: {user.password}</p>
             <h3 class="card-title-new">Enter New User Profile Information</h3>
             <div className='form'>
-            <form className='update-login-form' onSubmit={handleSubmit}>
+            <form className='update-login-form' /*onSubmit={handleSubmit}*/>
 
               <div className='input_field' >
                 <label htmlFor='email'>New Username:</label>
@@ -77,12 +121,20 @@ export default function EditUser() {
 
               <br></br>
 
-              <div className='btn'>
-                <button className='btn' type='submit'>
+              <div className='deleteBtn'>
+                <button className='deleteBtn' type='submit' onClick={handleEditProfileSubmit}> 
                   Submit User Changes
                 </button>
               </div>
             </form>
+          <div></div>
+          <span></span>
+          {/* <h3 class="card-title-new">Delete User Profile</h3>
+          <div className='deleteBtn' onClick={handleDeleteProfile}>
+              <button className='deleteBtn' type='submit'>
+                Confirm to Delete User Profile
+              </button>
+          </div> */}
         </div>    
       </div>
       </div>      

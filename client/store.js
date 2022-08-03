@@ -15,7 +15,10 @@ const store = createStore({
   userLikedBooks: [],
   updateLikedBooks: action((state, payload) => {
     state.userLikedBooks = payload;
-  })
+  }),
+  // deleteUser: action((state, payload) => {
+  //   state.user = payload;
+  // })
 }, // model
   { devTools: true } //config
 );

@@ -39,9 +39,11 @@ userController.login = async (req, res, next) => {
 
 userController.deleteUser = async (req, res, next) => {
   try {
+    console.log('I am in the delete user controller');
     const { _id } = req.params;
 
     await User.deleteOne({ _id });
+    console.log('I am after deleting the user');
     return next();
   }
   catch (err) {
@@ -51,10 +53,10 @@ userController.deleteUser = async (req, res, next) => {
 
 userController.updateUser = async (req, res, next) => {
   try {
-    const { _id } = req.params;
-    const { username, password, email } = req.body;
+    const { _id, username, password, email } = req.body;
 
-    await User.findOneAndUpdate({ _id }, { username, password, email });
+    const edited = await User.findOneAndUpdate({ _id }, { username, password, email }, { new: true });
+    res.locals.editUser = edited;
     return next();
   } catch (err) {
     return next({ message: { err: 'user update err' } })
