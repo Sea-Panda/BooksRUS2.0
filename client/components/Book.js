@@ -19,7 +19,7 @@ export default function Book(props) {
   }
 
   async function handleLike(event) {
-    // console.log('user????', user);
+    console.log('user????', user);
 
     /* SendingInfo is an object that contains the email of the user and the bookData. */
     const sendingInfo = { email: user.email, bookData: bookData };
