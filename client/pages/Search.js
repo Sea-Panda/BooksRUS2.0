@@ -52,6 +52,8 @@ export default function search() {
 
   return (
 
+    <div>
+      <Nav />
     <div className='searchBody'>
 
       <h1 className='searchbar'>Search for a book!</h1>
@@ -72,7 +74,7 @@ export default function search() {
           </div>
         </div>
       </div>
-
+      </div>
     </div>
 
 

@@ -16,7 +16,7 @@ import Nav from "./components/Nav";
 ReactDOM.render(
   <StoreProvider store={store}>
     <HashRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<App />} />
 
@@ -24,9 +24,7 @@ ReactDOM.render(
           <Route path="login" element={<Login />} /> // The nested url segments
           map to nested component trees.
           <Route path="register" element={<Register />} />
-          {/* <Nav /> */}
         </Route>
-        {/* <Nav /> */}
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
