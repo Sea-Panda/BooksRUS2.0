@@ -19,7 +19,7 @@ export default function Book(props) {
     moreInfo: props.book.volumeInfo.infoLink
   }
 
-  console.log(user)
+  console.log(props)
 
   async function handleLike() {
     console.log('user????', user);

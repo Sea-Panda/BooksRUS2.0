@@ -34,6 +34,8 @@ export default function search() {
     }
   };
 
+  // console.log(input)
+
   return (
     <div>
       <Nav />

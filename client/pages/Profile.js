@@ -4,6 +4,7 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import ProfileBooks from '../components/booksForProfile';
 import Nav from '../components/Nav';
 import Search from './Search';
+import EditUser from './EditUser';
 
 
 
@@ -23,6 +24,7 @@ export default function Profile() {
       <Nav />
       <Routes>
         <Route path="/search" element={<Search />} />
+        <Route path='/user/editUser' element={<EditUser />} />
       </Routes>
       <div className='user-profile'>
 
