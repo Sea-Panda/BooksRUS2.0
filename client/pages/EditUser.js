@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import Nav from "../components/Nav";
+import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
 
 // import * as React from 'react';
 // import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
@@ -10,6 +11,8 @@ import Nav from "../components/Nav";
 
 export default function EditUser() {
   const user = useStoreState((state) => state.user);
+
+  
 
   return (
     <div>
@@ -23,7 +26,7 @@ export default function EditUser() {
                 <p class="card-text"> Password: {user.password}</p>
             <h3 class="card-title-new">Enter New User Profile Information</h3>
             <div className='form'>
-            <form className='login-form' onSubmit={handleSubmit}>
+            <form className='update-login-form' onSubmit={handleSubmit}>
 
               <div className='input_field' >
                 <label htmlFor='email'>New Username:</label>

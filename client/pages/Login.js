@@ -9,6 +9,7 @@ export default function Login() {
 
   let navigate = useNavigate();
   async function handleSubmit(event) {
+    /* It prevents the default action of the event from happening. */
     event.preventDefault();
     // request to /auth/login
     const data = await fetch('/auth/login', {
