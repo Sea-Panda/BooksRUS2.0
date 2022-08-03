@@ -50,8 +50,6 @@ bookController.unLike = async (req, res, next) => {
   await Book.deleteOne({ isbn: isbn }).exec()
     .then((doc) => { console.log(doc); return next() })
     .catch((err) => next({ message: { err: 'err in delete on in Book' } }))
-
-
 }
 
 

@@ -14,6 +14,4 @@ router.post('/like', bookController.like, (req, res) => res.status(200).json(res
 
 router.post('/unLike', bookController.unLike, (req, res) => res.status(200).json(res.locals.data));
 
-
-
 module.exports = router;
