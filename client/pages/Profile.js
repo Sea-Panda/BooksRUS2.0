@@ -6,6 +6,7 @@ import Nav from '../components/Nav';
 import Search from './Search';
 
 
+
 export default function Profile() {
   const user = useStoreState((state) => state.user);
   const logoutUser = useStoreActions((actions) => actions.logout);
@@ -26,9 +27,9 @@ export default function Profile() {
       <div className='user-profile'>
 
         <div className='userButtons'>
-          <button className='updateUserBtn' onClick={() => navigate("/search", { replace: true })}> Update User</button>
+          <button className='updateUserBtn' onClick={() => navigate("/editUser", { replace: true })}> Update User</button>
           <div></div>
-          <button className='deleteUserBtn' onClick={() => navigate("/search", { replace: true })}> Delete User</button>
+          <button className='deleteUserBtn' onClick={() => navigate("/deleteUser", { replace: true })}> Delete User</button>
         </div>
 
         <div>
