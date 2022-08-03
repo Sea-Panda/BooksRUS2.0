@@ -18,7 +18,7 @@ export default function Book(props) {
     moreInfo: props.book.volumeInfo.infoLink
   }
 
-  async function handleLike(event) {
+  async function handleLike() {
     console.log('user????', user);
 
     /* SendingInfo is an object that contains the email of the user and the bookData. */
@@ -29,7 +29,11 @@ export default function Book(props) {
       body: JSON.stringify(sendingInfo)
     })
       .then((data) => data.json())
-      .then((data) => console.log(data)/*updateUser(data)*/)
+      .then((data) =>
+      // console.log('HERE: ', data)
+      updateUser(data))
+      
+      /*updateUser(data)*/
       // .then((data) => updateUser(data))
       .catch(err => console.log('error in /books/like'))
 

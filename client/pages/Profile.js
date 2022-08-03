@@ -10,6 +10,7 @@ export default function Profile() {
   const user = useStoreState((state) => state.user);
   const logoutUser = useStoreActions((actions) => actions.logout);
   let navigate = useNavigate();
+  console.log('user: ', user)
   const likedBooks = user.likedBooks;
   const likedBooksComponents = []
   for (let i = 0; i < likedBooks.length; i++) {
