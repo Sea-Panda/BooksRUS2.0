@@ -19,22 +19,20 @@ bookController.like = async (req, res, next) => {
         }
       }
     })
-      //adding instance of book
-      // async function helper() {
-        const likedBook = await Book.create({ name: bookData.name, description: bookData.description, isbn: bookData.isbn, imageUrl: bookData.imageUrl, moreInfo: bookData.moreInfo });
-        const data = await User.updateOne({ email: email }, { $push: { likedBooks: likedBook } }).exec()
-          .then((doc) => { console.log(doc) }) // 
-          .catch((err) => { console.log('update user likedbook err!!!') });
+    .catch((err) => next({ message: { err: 'err in booklike controller' } }));
 
-        const updatedUser = await User.findOne({ email: email });
-        console.log('iam updateduer!!!!!!!', updatedUser);
-        res.locals.data = updatedUser;
-      // };
+    const likedBook = await Book.create({ name: bookData.name, description: bookData.description, isbn: bookData.isbn, imageUrl: bookData.imageUrl, moreInfo: bookData.moreInfo });
+    const data = await User.updateOne({ email: email }, { $push: { likedBooks: likedBook } }).exec()
+      .then((doc) => { console.log(doc) }) // 
+      .catch((err) => { console.log('update user likedbook err!!!') });
 
-      // helper()
-      return next();
-    // })
-    // .catch((err) => next({ message: { err: 'err in booklike controller' } }));
+    const updatedUser = await User.findOne({ email: email });
+    console.log('iam updateduer!!!!!!!', updatedUser);
+    res.locals.data = updatedUser;
+
+    return next();
+
+    
 }
 
 bookController.unLike = async (req, res, next) => {

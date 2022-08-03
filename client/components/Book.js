@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Comment from './Comments'
 import { useStoreState, useStoreActions } from 'easy-peasy';
+
 export default function Book(props) {
 
   //import user from store
@@ -18,6 +19,8 @@ export default function Book(props) {
     moreInfo: props.book.volumeInfo.infoLink
   }
 
+  console.log(user)
+
   async function handleLike() {
     console.log('user????', user);
 
@@ -29,17 +32,9 @@ export default function Book(props) {
       body: JSON.stringify(sendingInfo)
     })
       .then((data) => data.json())
-      .then((data) =>
-      // console.log('HERE: ', data)
-      updateUser(data))
-      
-      /*updateUser(data)*/
-      // .then((data) => updateUser(data))
+      .then((data) => updateUser(data))
       .catch(err => console.log('error in /books/like'))
-
   }
-
-
   return (
     <div>
       <h4>Book Name: {bookData.name} </h4>
