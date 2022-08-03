@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import ProfileBooks from '../components/booksForProfile';
+import Nav from '../components/Nav';
+import Search from './Search';
 
 
 export default function Profile() {
@@ -15,7 +17,11 @@ export default function Profile() {
     likedBooksComponents.push(<ProfileBooks book={currentBook} key={i} />);
   }
   return (
-
+    <div>
+    <Nav />
+    <Routes>
+      <Route path="/search" element={<Search />} />
+    </Routes>
     <div className='user-profile'>
 
       <button className='searchbtn_profile' onClick={() => navigate("/search", { replace: true })}> Search</button>
@@ -30,26 +36,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
-
-
-
-
-      <div className='favorite_books'>
-        <div class="card text-center">
-          <div class="card-body">
-            <h3 class="card-title">My Favorite Books</h3>
-            <p class="card-text">View all your favorite books in one place!</p>
-            {likedBooksComponents}
-          </div>
-        </div>
       </div>
-
-
-    </div >
-
-
-
-
+      </div>
   )
-} 
-
+}
