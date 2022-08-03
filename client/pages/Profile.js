@@ -36,7 +36,17 @@ export default function Profile() {
           </div>
         </div>
       </div>
+
+      <div className='favorite_books'>
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">My Favorite Books</h3>
+          <p class="card-text">View all your favorite books in one place!</p>
+          {likedBooksComponents}
+        </div>
+        </div>
       </div>
       </div>
-  )
+      </div>
+  );
 }
