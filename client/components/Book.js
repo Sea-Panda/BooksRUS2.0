@@ -14,12 +14,12 @@ export default function Book(props) {
   const bookData = {
     name: props.book.volumeInfo.title,
     description: props.book.volumeInfo.description,
-    isbn: props.book.volumeInfo.industryIdentifiers[1].identifier,
+    isbn: props.book.volumeInfo.industryIdentifiers[0].identifier,
     imageUrl: imageUrls[0],
     moreInfo: props.book.volumeInfo.infoLink
   }
 
-  console.log(user)
+  console.log(props)
 
   async function handleLike() {
     console.log('user????', user);

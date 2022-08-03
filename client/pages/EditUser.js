@@ -62,13 +62,13 @@ export default function EditUser() {
     <div>
       <Nav />
       <div>
-        <div class="card text-center">
-          <div class="card-body">
-            <h3 class="card-title-old">Current Profile Information</h3>
-                <p class="card-text">Username: {user.username}</p>
-                <p class="card-text">Email: {user.email}</p>
-                <p class="card-text"> Password: {user.password}</p>
-            <h3 class="card-title-new">Enter New User Profile Information</h3>
+        <div className="card text-center">
+          <div className="card-body">
+            <h3 className="card-title-old">Current Profile Information</h3>
+                <p className="card-text">Username: {user.username}</p>
+                <p className="card-text">Email: {user.email}</p>
+                <p className="card-text"> Password: {user.password}</p>
+            <h3 className="card-title-new">Enter New User Profile Information</h3>
             <div className='form'>
             <form className='update-login-form' /*onSubmit={handleSubmit}*/>
 
