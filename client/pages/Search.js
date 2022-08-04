@@ -3,28 +3,25 @@ import Book from "../components/Book.js";
 import Nav from "../components/Nav.js";
 
 export default function search() {
-  // create a search box
-  // start an api query
-  //display the response from api
-  // the book have like button and unlike button
   const [books, setBooks] = useState([]);
+
   // AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA
   async function queryBooks(keyWords) {
     const url = `https://www.googleapis.com/books/v1/volumes?&q=${keyWords}&key=AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA`;
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
+        if(!queryArr) setBooks([])
         const queryArr = res.items;
         console.log("books query: ", queryArr);
         const newBooks = [];
-        // console.log(queryArr)
         for (let i = 0; i < queryArr.length; i++) {
           if(queryArr[i].volumeInfo.industryIdentifiers && queryArr[i].volumeInfo.imageLinks)
             newBooks.push(<Book book={queryArr[i]} key={i} />);
         }
         setBooks(newBooks);
       })
-      .catch((err) => console.log("query api err"));
+      .catch((err) => console.log(`query api err: ${err}`));
   }
 
   const handleKeyDown = (e) => {
@@ -33,6 +30,12 @@ export default function search() {
       queryBooks(document.getElementById("search").value);
     }
   };
+
+  if(!books.length) setBooks([
+    <div key={'no-books'}>
+      <p>NO BOOKS FOUND!</p>
+    </div>
+  ]);
 
   // console.log(input)
 

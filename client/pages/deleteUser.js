@@ -18,7 +18,7 @@ export default function DeleteUser(){
     })
     .then((response) => response.json())
     .then((data) => console.log(data))
-    .catch(err => console.log('Error in Handle Delete Profile'))
+    .catch(err => console.log(`Error in Handle Delete Profile: ${err}`))
     
     navigate('/auth', { replace: true });
   }

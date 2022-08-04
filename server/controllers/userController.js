@@ -12,7 +12,7 @@ userController.register = async (req, res, next) => {
   const { username, email, password } = req.body;
   await User.create({ username: username, email: email, password: password })
     .then((res) => { console.log('user registered!!!!!!'); return next() })
-    .catch((err) => next({ message: { err: 'user registered err' } }));
+    .catch((err) => next({ message: { err: `user registered err: ${err}` } }));
 };
 
 userController.login = async (req, res, next) => {
@@ -34,7 +34,7 @@ userController.login = async (req, res, next) => {
         return next();
       }
     })
-    .catch((err) => next({ message: { err: 'user login err' } }));
+    .catch((err) => next({ message: { err: `user login err: ${err}` } }));
 };
 
 userController.deleteUser = async (req, res, next) => {
@@ -47,7 +47,7 @@ userController.deleteUser = async (req, res, next) => {
     return next();
   }
   catch (err) {
-    return next({ message: { err: 'user delete err' } })
+    return next({ message: { err: `user delete err: ${err}` } })
   }
 }
 
@@ -59,7 +59,7 @@ userController.updateUser = async (req, res, next) => {
     res.locals.editUser = edited;
     return next();
   } catch (err) {
-    return next({ message: { err: 'user update err' } })
+    return next({ message: { err: `user update err: ${err}` } })
   }
 }
 

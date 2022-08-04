@@ -8,14 +8,14 @@ export default function ProfileBooks(props) {
 
   async function handleUnlike(isbn) {
     const sendingInfo = { email: user.email, isbn: isbn };
-    const result = await fetch('/books/unLike', {
+    await fetch('/books/unLike', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(sendingInfo)
     })
     .then((data) => data.json())
-    .then((data) =>
-      updateUser(data))
+    .then((data) =>updateUser(data))
+    .catch((err) => console.log(`error in handleUnlike: ${err}`))
   }
 
   return (
