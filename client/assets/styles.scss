@@ -311,3 +311,39 @@ img {
     justify-content: center;
     align-items: center;
 }
+
+#bookDes {
+    font-size: 18px;
+}
+#bookDesProf {
+    font-size: 14px;
+}
+
+.likeButton {
+    width: max-content;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px black;
+    color: #373737;
+    padding: 5px;
+    background: pink;
+    margin-top: 8px;
+    // background-image: url('https://cdn0.iconfinder.com/data/icons/spotify-glyph-set/100/remove-from-your-liked-songs-fill-512.png');
+}
+
+.likeButton:hover {
+    transition: 0.3s;
+    background-color: #373737;
+    color: pink;
+}
+
+.likedButton {
+    width: max-content;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px black;
+    color: #ededed;
+    padding: 5px;
+    background: rgb(86, 137, 255);
+    margin-top: 8px;
+    // background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Liked.svg/2048px-Liked.svg.png');
+}
+

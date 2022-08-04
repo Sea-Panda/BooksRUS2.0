@@ -32,12 +32,12 @@ export default function search() {
     setCheckFetch(true);
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      await queryBooks(document.getElementById("search").value);
       setStart(0);
       setEnd(4);
-      queryBooks(document.getElementById("search").value);
     }
   };
 
@@ -90,7 +90,7 @@ export default function search() {
   return (
     <div>
       <Nav />
-      <div className="searchBody">
+      <div className="user-profile">
         <h1 className="searchbar">Search for a book!</h1>
         <form className="searchbar">
           <input
@@ -103,11 +103,11 @@ export default function search() {
           <button
             className="search-button"
             type="button"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
+              await queryBooks(document.getElementById("search").value);
               setStart(0);
               setEnd(4);
-              queryBooks(document.getElementById("search").value);
             }}
           >
             Search
@@ -119,6 +119,7 @@ export default function search() {
               <h3 className="card-title">Results</h3>
               <p className="card-text"></p>
               {buttons}
+              <hr/>
               {books.slice(start, end)}
               {buttons}
             </div>

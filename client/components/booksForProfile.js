@@ -20,12 +20,13 @@ export default function ProfileBooks(props) {
 
   return (
     <div>
+      <hr/>
       <h4>Book Name: {props.book.name} </h4>
       <img src={props.book.imageUrl} />
       <h4>ISBN-10: {props.book.isbn}</h4>
       <button className="removeBook" onClick={() => handleUnlike(props.book.isbn)}>Remove from favorites</button>
 
-      <h4>Description: {props.book.description}</h4>
+      <div id="bookDesProf">Description: {props.book.description}</div>
       <a href={props.book.moreInfo}>More Info</a>
 
       <br></br>
