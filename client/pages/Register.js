@@ -18,7 +18,7 @@ export default function Register() {
 
     })
       .then((resp) => resp.json())
-      .catch((err) => console.log('error in /auth/register'));
+      .catch((err) => console.log(`error in /auth/register: ${err}`));
 
     if (data === null) {
       //tell user that login credentials were wrong

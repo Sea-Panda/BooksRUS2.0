@@ -37,7 +37,7 @@ export default function EditUser() {
       // updateUser(updatedData)
       // navigate ('/profile', { replace: true })
 
-      .catch((err) => console.log('Error in handleEditProfileSubmit in EditUser.js'))
+      .catch((err) => console.log(`Error in handleEditProfileSubmit in EditUser.js: ${err}`))
   }
 
   // async function handleDeleteProfile(){

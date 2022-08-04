@@ -11,7 +11,6 @@ bookController.like = async (req, res, next) => {
     .then(user => {
       const arrOfBooks = user.likedBooks;
       for (const book of arrOfBooks) {
-        // check book.isbn, if find, return
         if (book.isbn === bookData.isbn) {
           console.log('book is already liked');
           res.locals.data = user; // $$$ frontend needs to know this
@@ -19,36 +18,29 @@ bookController.like = async (req, res, next) => {
         }
       }
     })
+    .catch((err) => { console.log(`err in user.findOne bookcontroller.like err: ${err}`) });
 
-    const likedBook = await Book.create({ name: bookData.name, description: bookData.description, isbn: bookData.isbn, imageUrl: bookData.imageUrl, moreInfo: bookData.moreInfo });
-    const data = await User.updateOne({ email: email }, { $push: { likedBooks: likedBook } }).exec()
-      .then((doc) => { console.log(doc) }) // 
-      .catch((err) => { console.log('update user likedbook err!!!') });
+  const likedBook = await Book.create({ name: bookData.name, description: bookData.description, isbn: bookData.isbn, imageUrl: bookData.imageUrl, moreInfo: bookData.moreInfo });
+  await User.updateOne({ email: email }, { $push: { likedBooks: likedBook } }).exec()
+    .then((doc) => { console.log(doc) })
+    .catch((err) => { console.log(`err in user.updateOne bookcontroller.like err: ${err}`) });
 
-    const updatedUser = await User.findOne({ email: email });
-    console.log('iam updateduer!!!!!!!', updatedUser);
-    res.locals.data = updatedUser;
-
-    return next();
-
+  const updatedUser = await User.findOne({ email: email });
+  res.locals.data = updatedUser;
+  return next();
 }
 
 bookController.unLike = async (req, res, next) => {
-  // the book liked before
-  //req body would be {email, bookData}
   const { email, isbn } = req.body
   await User.findOneAndUpdate({ email: email }, { $pull: { likedBooks: { isbn: isbn } } }, { new: true }).exec()
     .then(data => {
       res.locals.data = data;
     })
-    .catch(err => next({ message: { err: 'err in removing book from likes' } }))
-  // remvove the book from book collection
-  // remove the 
+    .catch(err => next({ message: { err: `err in removing book from likes: ${err}` } }))
+  
   await Book.deleteOne({ isbn: isbn }).exec()
     .then((doc) => { console.log(doc); return next() })
-    .catch((err) => next({ message: { err: 'err in delete on in Book' } }))
+    .catch((err) => next({ message: { err: `err in delete on in Book: ${err}` } }))
 }
-
-
 
 module.exports = bookController;
