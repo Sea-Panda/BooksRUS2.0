@@ -33,7 +33,7 @@ export default function Book(props) {
     })
       .then((data) => data.json())
       .then((data) => updateUser(data))
-      .catch(err => console.log('error in /books/like'))
+      .catch(err => console.log(`error in /books/like: ${err}`))
   }
   return (
     <div>

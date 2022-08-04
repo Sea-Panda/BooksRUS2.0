@@ -6,8 +6,6 @@ import Nav from '../components/Nav';
 import Search from './Search';
 import EditUser from './EditUser';
 
-
-
 export default function Profile() {
   const user = useStoreState((state) => state.user);
   const logoutUser = useStoreActions((actions) => actions.logout);

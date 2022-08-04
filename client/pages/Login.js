@@ -18,7 +18,7 @@ export default function Login() {
       body: JSON.stringify({ email: email, password: password }),
     })
       .then((resp) => resp.json())
-      .catch((err) => console.log('error in /auth/login'));
+      .catch((err) => console.log(`error in /auth/login: ${err}`));
 
     if (data === null) {
       //tell user that login credentials were wrong

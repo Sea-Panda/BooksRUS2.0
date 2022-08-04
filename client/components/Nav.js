@@ -2,8 +2,6 @@ import * as React from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
-
-
 export default function () {
   const user = useStoreState((state) => state.user);
   const logoutUser = useStoreActions((actions) => actions.logout);
