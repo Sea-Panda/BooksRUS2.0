@@ -54,9 +54,9 @@ export default function EditUser() {
   //   navigate('/auth', { replace: true });
   // }
 
-  const [username, setUsername] = React.useState();
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
+  const [username, setUsername] =useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   return (
     <div>
