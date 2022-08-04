@@ -53,10 +53,10 @@ export default function Book(props) {
 
   if(likedOrNot) {
     // ourButton = <p>already liked</p>
-    ourButton = <button style={{backgroundColor: '3AB4F2', color: 'white'}}>Liked!</button>
+    ourButton = <button className='likedButton'>Liked!</button>
   }
   else {
-    ourButton = <button style={{backgroundColor: 'pink', color: 'white'}} onClick={handleLike}> Like</button>;
+    ourButton = <button className='likeButton' onClick={handleLike}> Like</button>;
   }
 
   console.log("THIS IS USER", user);
@@ -68,12 +68,12 @@ export default function Book(props) {
       <img src={imageUrls[0]} />
       <h4>ISBN-10: {bookData.isbn}</h4>
 
-      <h4>Description: {bookData.description}</h4>
+      <div id='bookDes'>Description: {bookData.description}</div>
       <a href={bookData.moreInfo}>More Info</a>
       <br></br>
       {ourButton}
       {/* <button onClick={handleLike}> Like</button> */}
-      <br></br>
+      <br></br><hr/>
     </div>
   );
 }
