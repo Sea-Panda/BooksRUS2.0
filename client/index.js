@@ -25,7 +25,7 @@ root.render(
           map to nested component trees.
           <Route path="register" element={<Register />} />
         </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/*" element={<Profile />} />
         <Route path="/search" element={<Search />} />
         <Route path='/editUser' element={<EditUser />} />
         <Route path='/deleteUser' element={<DeleteUser />}/>

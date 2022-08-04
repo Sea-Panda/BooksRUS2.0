@@ -54,9 +54,9 @@ export default function EditUser() {
   //   navigate('/auth', { replace: true });
   // }
 
-  const [username, setUsername] = React.useState();
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
+  const [username, setUsername] =useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   return (
     <div>
@@ -104,7 +104,7 @@ export default function EditUser() {
 
               <br></br>
               <div className='input_field'>
-                <label for='password'>New Password:</label>
+                <label htmlFor='password'>New Password:</label>
 
                 <div className='input_box'>
                   <input
