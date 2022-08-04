@@ -4,10 +4,16 @@ import Nav from "../components/Nav.js";
 
 export default function search() {
   const [books, setBooks] = useState([]);
+  const [start, setStart] = useState(0)
 
   // AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA
   async function queryBooks(keyWords) {
-    const url = `https://www.googleapis.com/books/v1/volumes?&q=${keyWords}&key=AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA`;
+    console.log('start num: ', start) 
+    // setStart(start + add) 
+    if (start < 0) setStart(0)
+    if (start > 35) setStart(35);
+    console.log('start: ', start)
+    const url = `https://www.googleapis.com/books/v1/volumes?&q=${keyWords}&startIndex=${start}&maxResults=40&key=AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA`;
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
@@ -15,7 +21,7 @@ export default function search() {
         const queryArr = res.items;
         console.log("books query: ", queryArr);
         const newBooks = [];
-        for (let i = 0; i < queryArr.length; i++) {
+        for (let i = 0; i < 5; i++) {
           if(queryArr[i].volumeInfo.industryIdentifiers && queryArr[i].volumeInfo.imageLinks)
             newBooks.push(<Book book={queryArr[i]} key={i} />);
         }
@@ -50,12 +56,15 @@ export default function search() {
             type="text"
             id="search"
             placeholder="My favorite title"
+            onChange={() => setStart(0)}
           ></input>
           <label htmlFor="search"></label>
           <button
             className="search-button"
             type="button"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              setStart(0)
               queryBooks(document.getElementById("search").value);
             }}
           >
@@ -68,7 +77,47 @@ export default function search() {
             <div className="card-body">
               <h3 className="card-title">Results</h3>
               <p className="card-text"></p>
+              <button
+            className="search-button"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              if(start > 0) setStart(start - 5)
+              queryBooks(document.getElementById("search").value);
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="search-button"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setStart(start + 5)
+              queryBooks(document.getElementById("search").value);
+            }}
+          >
+            Next
+          </button>
               {books}
+              <button
+            className="search-button"
+            type="button"
+            onClick={(e) => {
+              queryBooks(document.getElementById("search").value, -5, e);
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="search-button"
+            type="button"
+            onClick={(e) => {
+              queryBooks(document.getElementById("search").value, 5, e);
+            }}
+          >
+            Next
+          </button>
             </div>
           </div>
         </div>

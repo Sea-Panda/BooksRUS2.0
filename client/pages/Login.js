@@ -22,6 +22,7 @@ export default function Login() {
 
     if (data === null) {
       //tell user that login credentials were wrong
+      alert('Username and/or password could not be found')
       console.log('invalid credentials');
     } else {
       updateUser(data); //updates our global state
