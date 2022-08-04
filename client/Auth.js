@@ -11,7 +11,7 @@ class Auth extends Component {
 
           <div className="jumbotron" >
 
-            <h1 className="display-4">BooksRUs</h1>
+            <h1 className="display-4">BikesRUs</h1>
             <p className="lead">Build a library of your own!</p>
             <br></br>
             <p>Search and discover new books catered to your personal taste. Register now to start.</p>

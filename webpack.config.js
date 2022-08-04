@@ -21,7 +21,7 @@ module.exports = {
         exclude: [/node_modules/, /archive/],
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: ['@babel/preset-env', '@babel/preset-react', "@babel/plugin-syntax-jsx"],
           plugins: ['@babel/plugin-transform-runtime', '@babel/transform-async-to-generator'],
         }
       },
