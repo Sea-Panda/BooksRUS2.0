@@ -56,7 +56,7 @@ export default function Login() {
 
               <br></br>
               <div className='input_field'>
-                <label for='password'>Password</label>
+                <label htmlFor='password'>Password</label>
 
                 <div className='input_box'>
                   <input
