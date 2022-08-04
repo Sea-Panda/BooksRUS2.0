@@ -20,21 +20,21 @@ import Login from '../client/pages/Login';
 import EditUser from '../client/pages/EditUser';
 import DeleteUser from '../client/pages/deleteUser';
 
-describe('Testing React Components', () => {
+// describe('Testing React Components', () => {
     
-    describe('Auth', () => {
-      let text;
+//     describe('Auth', () => {
+//       let text;
   
-      beforeAll(() => {
-        text = render(<Auth />);
-      });
+//       beforeAll(() => {
+//         text = render(<Auth />);
+//       });
 
-        test('should render BooksRUS title, login and register buttons', () => {
-          expect(text.toHaveTextContent('BooksRUs'));
-          expect(text.toHaveTextContent('Build a library of your own!'));
-          expect(text.toHaveTextContent('Search and discover new books catered to your personal taste. Register now to start.'));
-        //   screen.getAllByText
-        })
-    })
-})
+//         test('should render BooksRUS title, login and register buttons', () => {
+//           expect(text.toHaveTextContent('BooksRUs'));
+//           expect(text.toHaveTextContent('Build a library of your own!'));
+//           expect(text.toHaveTextContent('Search and discover new books catered to your personal taste. Register now to start.'));
+//         //   screen.getAllByText
+//         })
+//     })
+// })
 

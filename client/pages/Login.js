@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useStoreState, useStoreActions } from 'easy-peasy';
-import '/client/assets/styles.scss';
+// import '/client/assets/styles.scss';
 
 export default function Login() {
   const user = useStoreState((state) => state.user);

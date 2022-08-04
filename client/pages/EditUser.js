@@ -1,14 +1,9 @@
-// import * as React from "react";
 import React, { useState, useEffect } from 'react';
 import { useStoreState, useStoreActions } from "easy-peasy";
 import Nav from "../components/Nav";
 import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
 
-// import * as React from 'react';
-// import { useParams, useNavigate, Navigate, Routes, Route } from 'react-router-dom';
-// import { useStoreState, useStoreActions } from 'easy-peasy';
-// import ProfileBooks from '../components/booksForProfile';
-// import Search from './Search';
+
 
 
 export default function EditUser() {
@@ -122,7 +117,7 @@ export default function EditUser() {
               <br></br>
 
               <div className='deleteBtn'>
-                <button className='deleteBtn' type='submit' onClick={handleEditProfileSubmit}> 
+                <button className='updateUserBtn' type='submit' onClick={handleEditProfileSubmit}> 
                   Submit User Changes
                 </button>
               </div>

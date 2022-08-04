@@ -31,7 +31,7 @@ export default function DeleteUser(){
           <div className='card-body'>
           <h3 className="card-title-new">Delete User Profile</h3>
           <div className='deleteBtn' onClick={handleDeleteProfile}>
-              <button className='deleteBtn' type='submit'>
+              <button className='deleteUserBtn' type='submit'>
                 Confirm to Delete User Profile
               </button>
           </div>
