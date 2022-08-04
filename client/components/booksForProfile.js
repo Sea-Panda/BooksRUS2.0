@@ -18,6 +18,10 @@ export default function ProfileBooks(props) {
     .catch((err) => console.log(`error in handleUnlike: ${err}`))
   }
 
+    const handleClick = () => {
+    window.open(props.book.moreInfo)
+  }
+
   return (
     <div>
       <hr/>
@@ -27,7 +31,7 @@ export default function ProfileBooks(props) {
       <button className="removeBook" onClick={() => handleUnlike(props.book.isbn)}>Remove from favorites</button>
 
       <div id="bookDesProf">Description: {props.book.description}</div>
-      <a href={props.book.moreInfo}>More Info</a>
+      <button className='moreInfo' onClick={handleClick}>More Info</button> 
 
       <br></br>
 

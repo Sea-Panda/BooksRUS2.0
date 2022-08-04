@@ -62,17 +62,19 @@ export default function Book(props) {
   console.log("THIS IS USER", user);
   console.log("THIS IS USER LIKEDBOOKS ARRAY", user.likedBooks);
 
+  const handleClick = () => {
+    window.open(bookData.moreInfo)
+  }
+
   return (
     <div>
       <h4>Book Name: {bookData.name} </h4>
       <img src={imageUrls[0]} />
       <h4>ISBN-10: {bookData.isbn}</h4>
-
       <div id='bookDes'>Description: {bookData.description}</div>
-      <a href={bookData.moreInfo}>More Info</a>
+      <button className='moreInfo' onClick={handleClick}>More Info</button> 
       <br></br>
       {ourButton}
-      {/* <button onClick={handleLike}> Like</button> */}
       <br></br><hr/>
     </div>
   );
